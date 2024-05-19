@@ -1,0 +1,66 @@
+/* Load self hosted font */
+@font-face {
+    font-family: nordic;
+    src:
+        url("fonts/norse-bold-webfont.woff") format("woff"),
+        url("fonts/norse-bold-webfont.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;     
+}
+
+* {
+    box-sizing: border-box;
+}
+html body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+/* All this styling is for the sidebar
+-------------------------------------- */
+
+.sidebar {
+    background: url(background.jpg)  no-repeat center center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    background-color: rgba(0, 0, 0, 0.35);
+    height: 15%;
+    margin-top: 20%;
+}
+
+.footer {
+   align-self: center;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.overlay {
+    display: flex;
+    height: 100%;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+
+    /* Font Styling */
+    font-size: 5em;
+    font-family: nordic, monospace;
+}
+
+/* Resize logo to stay within its parent container*/
+.logo {
+    height: 100%;
+}
+
+a {
+    color: white;
+}
