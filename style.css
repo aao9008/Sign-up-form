@@ -1,66 +1,192 @@
-/* Load self hosted font */
+/* Load self-hosted font */
 @font-face {
-    font-family: nordic;
-    src:
-        url("fonts/norse-bold-webfont.woff") format("woff"),
-        url("fonts/norse-bold-webfont.woff2") format("woff2");
+    font-family: 'Nordic';
+    src: url("fonts/norse-bold-webfont.woff") format("woff"),
+         url("fonts/norse-bold-webfont.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;     
 }
 
+/* Variables */
+:root {
+    --background-color: #f9fafb;
+    --primary-color: #596D48;
+    --text-color: white;
+    --box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    --button-box-shadow: rgba(0, 0, 0, 0.20) 0px 2px 6px;
+    --header-bg: rgba(0, 0, 0, 0.35);
+    --font-family-main: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Global Styles */
 * {
     box-sizing: border-box;
 }
-html body {
+
+html, body {
     height: 100vh;
     margin: 0;
     padding: 0;
 }
+
 body {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    background-color: var(--background-color);
 }
 
-/* All this styling is for the sidebar
--------------------------------------- */
-
+/* Sidebar Styles */
 .sidebar {
-    background: url(background.jpg)  no-repeat center center;
+    background: url(background.jpg) no-repeat center center;
     background-size: cover;
-    color: white;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.header {
-    background-color: rgba(0, 0, 0, 0.35);
+.sidebar .header {
+    background-color: var(--header-bg);
     height: 15%;
-    margin-top: 20%;
+    margin-top: 210px;
 }
 
-.footer {
-   align-self: center;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.sidebar .footer {
+    align-self: center;
+    font-family: var(--font-family-main);
 }
 
-.overlay {
+.sidebar .overlay {
     display: flex;
     height: 100%;
     padding: 20px;
     align-items: center;
     justify-content: center;
-
-    /* Font Styling */
     font-size: 5em;
-    font-family: nordic, monospace;
+    font-family: 'Nordic', monospace;
 }
 
-/* Resize logo to stay within its parent container*/
-.logo {
+.sidebar .logo {
     height: 100%;
 }
 
 a {
-    color: white;
+    color: var(--text-color);
+}
+
+/* Main Window Styles */
+.window {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-family-main);
+    justify-content: center;
+    background-color: var(--background-color);
+}
+
+.window .msg {
+    font-size: 1.5rem;
+    align-self: center;
+    margin-left: 35px;
+    margin-right: 150px;
+}
+
+.window .warning {
+    margin: 0;
+}
+
+.window .field {
+    display: flex;
+    gap: 50px;
+}
+
+.window .input {
+    display: flex;
+    flex-direction: column;
+}
+
+.window .form {
+    height: 45%;
+}
+
+.window fieldset {
+    border: none;
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    margin: 0;
+    padding: 0;
+    padding-bottom: 40px;
+    height: 75%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    column-gap: 40px;
+    row-gap: 20px;
+    padding-left: 0;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.window button,
+.window fieldset > *,
+.window .login {
+    margin-left: 30px;
+    
+}
+
+.window fieldset .legend-container {
+    margin-left: 30px;
+    padding: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+button {
+    appearance: none;
+    margin-top: 35px;
+    border: none;
+    border-radius: 10px;
+    width: 260px;
+    height: 50px;
+    font-size: 1.2em;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    box-shadow: var(--button-box-shadow);
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+input {
+    appearance: none;
+    width: 300px;
+    height: 35px;
+    border-radius: 4px;
+    background: var(--background-color);
+    border: 2px solid #e5e7eb;
+}
+
+input:focus {
+    outline: none;
+    border-color: blue;
+    box-shadow: var(--button-box-shadow);
+}
+
+input[type=password]:focus {
+    outline: none;
+    border-color: red;
+    box-shadow: var(--button-box-shadow);
+}
+
+#alert {
+    color: red;
+    margin-top: -20px;
+    font-size: 0.8em;
+    font-weight: light;
+}
+
+#login {
+    color: var(--primary-color);
+    text-decoration: none;
 }
